@@ -1,21 +1,26 @@
+//array of todo item to applying CRUD operation
 const todos = ["coding", "eating", "sleep"];
 
+// get items from todos array
 const getTodos = (req, res) => {
   res.status(200).json(todos);
 };
 
+// create new item in todos array
 const createNewItem = (req, res) => {
   const { item } = req.body;
   todos.push(item);
   res.status(201).json(todos);
 };
 
+//update specific item in todos array by id
 const upadeItem = (req, res) => {
   const { item } = req.body;
   todos.push(item);
   res.status(201).json(todos);
 };
 
+//delete specific item in todos array
 const deleteItem = (req, res) => {
   //const {item}=req.body;
   const { id } = req.body;
@@ -27,6 +32,7 @@ const deleteItem = (req, res) => {
   }
 };
 
+//exports function to use them in router
 module.exports = {
   getTodos,
   createNewItem,
