@@ -23,9 +23,10 @@ const createNewItem = (req, res) => {
 
 //update specific item in todos array by id
 const upadeItem = (req, res) => {
+  const { id } = req.body;
   const { item } = req.body;
   try {
-    todos.push(item);
+    todos.splice(id, 1, item);
     res.status(201).json(todos);
   } catch (err) {
     console.log(err);
@@ -34,7 +35,6 @@ const upadeItem = (req, res) => {
 
 //delete specific item in todos array
 const deleteItem = (req, res) => {
-  //const {item}=req.body;
   const { id } = req.body;
   try {
     todos.splice(id, 1);

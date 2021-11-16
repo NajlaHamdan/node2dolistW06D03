@@ -17,7 +17,6 @@ app.use(appMidlleware);
 app.use(cors());
 app.use(morgan("dev"));
 
-
 app.use("/", route);
 
 const PORT = process.env.PORT || 4000;
