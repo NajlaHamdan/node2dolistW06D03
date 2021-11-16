@@ -1,22 +1,24 @@
 const express = require("express");
-const cors=require("cors");
-const morgan=require("morgan");
-const dotenv=require("dotenv");
-const app=express();
+const cors = require("cors");
+const morgan = require("morgan");
+const dotenv = require("dotenv");
+const app = express();
 app.use(express.json());
 dotenv.config();
 
-const todoRouter=require("./router/route/toDoroutes");
+const route = require("./router/route/toDoroutes");
 
-const appMidlleware=(req,res,next)=>{
-    console.log("appMidlleware");
-    next();
-}
+const appMidlleware = (req, res, next) => {
+  console.log("appMidlleware");
+  next();
+};
 
 app.use(appMidlleware);
 app.use(cors());
 app.use(morgan("dev"));
-app.use("/toDo",appMidlleware,todoRouter);
+
+
+app.use("/", route);
 
 const PORT = process.env.PORT || 4000;
 

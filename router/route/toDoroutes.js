@@ -1,22 +1,22 @@
 //import express  package
-const express=require("express");
+const express = require("express");
 
 //import functions from controller
-module.import={
-    getTodos,
-    createNewItem,
-    upadeItem,
-    deleteItem
-}=require("../controller/toDocontrollers");
+const  {
+  getTodos,
+  createNewItem,
+  upadeItem,
+  deleteItem,
+} = require("../controller/toDocontrollers");
 
-const route=express();
+const route = express();
 
-route.get("/todos",getTodos);
+route.get("/todos", getTodos);
 
-route.post("/createTodo",createNewItem);
+route.post("/createTodo", createNewItem);
 
-route.put("/updateItem",upadeItem);
+route.put("/updateItem", upadeItem);
 
-route.delete("/deleteItem",deleteItem);
+route.delete("/deleteItem", deleteItem);
 
-module.exports=route;
+module.exports = route;
