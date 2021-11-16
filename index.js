@@ -18,6 +18,28 @@ app.post("/createTodo",(req,res)=>{
     res.status(201).json(todos);
 })
 
+app.put("/updateItem",(req,res)=>{
+    const {item}=req.body;
+    const {id}=req.body;
+    try{
+        todos.splice(id,1,item);
+        res.status(200).json(todos)
+    }catch(err){
+        console.log(err);
+    }
+})
+
+app.delete("/deleteItem",(req,res)=>{
+    //const {item}=req.body;
+    const {id}=req.body;
+    try{
+        todos.splice(id,1);
+        res.status(200).json(todos)
+    }catch(err){
+        console.log(err);
+    }
+})
+
 const PORT=process.env.PORT || 4000;
 
 app.listen(PORT,()=>{
