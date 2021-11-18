@@ -1,21 +1,21 @@
 const express = require("express");
-const cors = require("cors");
-const morgan = require("morgan");
+// const cors = require("cors");
+// const morgan = require("morgan");
 const dotenv = require("dotenv");
 const app = express();
-app.use(express.json());
+// app.use(express.json());
 dotenv.config();
 
 const route = require("./router/route/toDoroutes");
 
-const appMidlleware = (req, res, next) => {
-  console.log("appMidlleware");
-  next();
-};
+// const appMidlleware = (req, res, next) => {
+//   console.log("appMidlleware");
+//   next();
+// };
 
-app.use(appMidlleware);
-app.use(cors());
-app.use(morgan("dev"));
+// app.use(appMidlleware);
+// app.use(cors());
+// app.use(morgan("dev"));
 
 app.use("/", route);
 

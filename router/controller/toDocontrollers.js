@@ -1,5 +1,6 @@
 //array of todo item to applying CRUD operation
 const todos = ["coding", "eating", "sleep"];
+// const express = require("express");
 
 // get items from todos array
 const getTodos = (req, res) => {
